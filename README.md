@@ -10,9 +10,17 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then run
+```bash
+openfin -l -c http://localhost:3000/app.json
+```
+to launch the platform
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The content runs from /pages/index.js
+
+The custom window runs from /pages/platform-window.ts
+
+the custom provider runs from /pages/platform-provider.ts
 
 ## Learn More
 
