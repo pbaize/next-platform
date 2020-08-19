@@ -19,6 +19,7 @@ export default function PlatformWindow() {
             height: '20px',
             width: '100%',
             backgroundColor: 'red',
+            //@ts-ignore
             ['-webkit-app-region']: 'drag'
         }}>TitleBar</div>
         <div id="layout-container" style={{
