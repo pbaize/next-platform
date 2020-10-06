@@ -1,0 +1,126 @@
+{
+    "runtime": {
+        "arguments": "--electron-child-windows --inspect --v=1",
+        "version": "alpha"
+    },
+    "shortcut": {
+        "company": "OpenFin",
+        "description": "Platform app seed local",
+        "icon": "https://openfin.github.io/golden-prototype/favicon.ico",
+        "name": "Platform app seed local"
+    },
+    "platform": {
+        "uuid": "platform_customization_local",
+        "applicationIcon": "https://openfin.github.io/golden-prototype/favicon.ico",
+        "autoShow": false,
+        "providerUrl": "https://lucid-ritchie-4ce046.netlify.app/provider",
+        "permissions": {
+            "ExternalWindow": {
+                "wrap": true
+            },
+            "System": {
+                "getAllExternalWindows": true,
+                "launchExternalProcess": true,
+                "readRegistryValue": false,
+                "terminateExternalProcess": true
+            }
+        },
+        "defaultWindowOptions": {
+            "url": "https://lucid-ritchie-4ce046.netlify.app/platform-window",
+            "waitForPageLoad": true,
+            "contextMenu": true,
+            "defaultWidth": 600,
+            "defaultHeight": 600,
+            "backgroundColor": "#111118",
+            "defaultLeft": 0,
+            "defaultTop": 0,
+            "saveWindowState": false,
+            "showBackgroundImages": true,
+            "backgroundThrottling": true,
+            "minHeight": 445,
+            "minWidth": 354
+        },
+        "defaultViewOptions": {
+            "experimental": {
+                "contentCreation": {
+                    "rules": [
+                        {
+                            "behavior": "window",
+                            "match": [
+                                "*://*.stackoverflow.com/*"
+                            ],
+                            "options": {
+                                "frame": false,
+                                "alwaysOnTop": true,
+                                "defaultWidth": 800,
+                                "defaultHeight": 600
+                            }
+                        },
+                        {
+                            "behavior": "browser",
+                            "match": [
+                                "*://*.gitlab.com/*"
+                            ]
+                        },
+                        {
+                            "behavior": "view",
+                            "match": [
+                                "*://*.reddit.com/r/javascript"
+                            ],
+                            "options": {
+                                "title": "...loading"
+                            }
+                        },
+                        {
+                            "behavior": "block",
+                            "match": [
+                                "*://*.reddit.com/*"
+                            ]
+                        },
+                        {
+                            "behavior": "window",
+                            "match": [
+                                "*://*/*?window=true"
+                            ]
+                        },
+                        {
+                            "behavior": "view",
+                            "match": [
+                                "<all_urls>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "stack.nextTab",
+                "keys": "Ctrl+Tab"
+            }
+        ]
+    },
+    "snapshot": {
+        "windows": [
+            {
+                "layout": {
+                    "content": [
+                        {
+                            "type": "stack",
+                            "content": [
+                                {
+                                    "type": "component",
+                                    "componentName": "view",
+                                    "componentState": {
+                                        "processAffinity": "ps_1",
+                                        "url": "https://lucid-ritchie-4ce046.netlify.app"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
