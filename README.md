@@ -2,6 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### Dev Mode
 First, run the development server:
 
 ```bash
@@ -21,6 +22,18 @@ The content runs from /pages/index.js
 The custom window runs from /pages/platform-window.ts
 
 the custom provider runs from /pages/platform-provider.ts
+
+### To Test Performance
+
+Dev mode is not optimized.
+
+Generate a production build with
+
+```bash
+npm run build
+npx http-server out -p 3000
+```
+Then launch with the openfin-cli
 
 ## Learn More
 
