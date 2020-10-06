@@ -1,8 +1,11 @@
 import React from 'react';
 import useLayouts from '../hooks/layouts'
+import useSnapshots from '../hooks/snapshots'
 
-export default function LeftMenu({ snapshotTemplates }) {
+export default function LeftMenu({ showLayoutForm, showSnapshotForm }) {
     const [layoutTemplates] = useLayouts();
+    const [snapshotTemplates] = useSnapshots();
+
     return <div>
         <span>Applications</span>
         <ul>
@@ -21,24 +24,23 @@ export default function LeftMenu({ snapshotTemplates }) {
             <li><button onClick={() => toGrid().catch(console.error)}>Grid</button></li>
             <li><button onClick={() => toTabbed().catch(console.error)}>Tab</button></li>
             {(layoutTemplates ?? []).map((item) => <li>
-                <button onClick={() => replaceLayoutFromTemplate(item.name)}>{item.name}</button>
+                <button onClick={() => replaceLayoutFromTemplate(item)}>{item.name}</button>
             </li >)}
             <li><button onClick={() => cloneWindow().catch(console.error)}>Clone</button></li>
-            <li><button className="layout-button">Save Layout</button></li>
+            <li><button className="layout-button" onClick={showLayoutForm}>Save Layout</button></li>
         </ul>
         <span>Snapshots</span>
         <ul>
             {(snapshotTemplates ?? []).map((item) => <li><button onClick={() =>
-                applySnapshotFromTemplate(item.name)}>{item.name}</button></li >)}
-            <li><button className="snapshot-button">Save Snapshot</button></li>
+                applySnapshotFromTemplate(item)}>{item.name}</button></li >)}
+            <li><button className="snapshot-button" onClick={showSnapshotForm}>Save Snapshot</button></li>
             <li><button onClick={() => share()}>Share</button></li>
         </ul>
     </div>;
 }
 
 const CHART_URL = 'https://cdn.openfin.co/embed-web/chart.html';
-const LAYOUT_STORE_KEY = 'LayoutForm';
-const SNAPSHOT_STORE_KEY = 'SnapshotForm';
+
 
 //List of apps available in the menu.
 const appList = [
@@ -122,18 +124,16 @@ const appList = [
 //     </div>;
 // };
 
-const applySnapshotFromTemplate = async (templateName) => {
-    const template = getTemplateByName(SNAPSHOT_STORE_KEY, templateName);
+const applySnapshotFromTemplate = async (template) => {
     return fin.Platform.getCurrentSync().applySnapshot(template.snapshot, {
         closeExistingWindows: template.close
     });
 
 };
 
-const replaceLayoutFromTemplate = async (templateName) => {
-    const templates = getTemplates(LAYOUT_STORE_KEY);
-    const templateToUse = templates.find(i => i.name === templateName);
-    fin.Platform.Layout.getCurrentSync().replace(templateToUse.layout);
+const replaceLayoutFromTemplate = async (template) => {
+
+    fin.Platform.Layout.getCurrentSync().replace(template.layout);
 };
 
 const addView = async (printName) => {
@@ -177,8 +177,6 @@ const cloneWindow = async () => {
     return fin.Platform.getCurrentSync().applySnapshot(snapshot);
 };
 
-const getTemplateByName = (...args) => null;
-const getTemplates = (...args) => null;
 const nonLayoutWindow = async () => {
     return fin.Platform.getCurrentSync().applySnapshot({
         windows: [{
