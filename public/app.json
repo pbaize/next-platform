@@ -27,9 +27,11 @@
         },
         "defaultWindowOptions": {
             "url": "http://localhost:3000/platform-window",
+            "waitForPageLoad": true,
             "contextMenu": true,
             "defaultWidth": 600,
             "defaultHeight": 600,
+            "backgroundColor": "#111118",
             "defaultLeft": 0,
             "defaultTop": 0,
             "saveWindowState": false,
