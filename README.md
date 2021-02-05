@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+[Launch in OpenFin](https://openfin.github.io/start/?manifest=https%3A%2F%2Flucid-ritchie-4ce046.netlify.app%2Fpublic.json)
+
+It has been built to experiment optimizing performance in an OpenFin Platform.
 ## Getting Started
 
 ### Dev Mode
@@ -44,8 +47,9 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Notes on OpenFin Platform optimizations.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Only uses `next export` for static builds so windows are pre-rendered
+- Leverages `next-pwa` to inject a caching service worker
+- Has links from the platform provider to the platform window page so that it can start in "headless" mode and pre-fetch the window
+- Not performance related, but uses `use-persisted-state` to keep state synchronized across multiple instances of platform windows
