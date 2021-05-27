@@ -1,7 +1,7 @@
 {
     "runtime": {
         "arguments": "--electron-child-windows --inspect --v=1",
-        "version": "alpha"
+        "version": "beta"
     },
     "shortcut": {
         "company": "OpenFin",
