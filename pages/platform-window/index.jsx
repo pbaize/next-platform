@@ -3,6 +3,7 @@ import TitleBar from '../../components/title-bar';
 import LeftMenu from '../../components/left-menu';
 import LayoutForm from '../../components/layout-form'
 import SnapshotForm from '../../components/snapshot-form'
+import styles from '../../styles/Home.module.css'
 
 
 export default function PlatformWindow() {

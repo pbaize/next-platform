@@ -4,9 +4,7 @@ import {inOpenFin} from 'openfin-adapter/src/mock';
 export default function app() {
     // Pass in empty array to only run once
     useEffect(() => {
-        if(inOpenFin) {
-            fin.Platform.init();
-        }
+
     }, []);
     return <div>
         <Link href="platform-window" >Custom Window (for prefetch)</Link>
