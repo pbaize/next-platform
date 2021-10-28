@@ -16,7 +16,7 @@ yarn dev
 
 Then run
 ```bash
-openfin -l -c http://localhost:3000/app.json
+openfin -l -c https://next-platform-omega.vercel.app/app.json
 ```
 to launch the platform
 

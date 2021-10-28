@@ -1,7 +1,7 @@
 {
     "runtime": {
         "arguments": "--electron-child-windows --inspect --v=1",
-        "version": "alpha"
+        "version": "stable"
     },
     "shortcut": {
         "company": "OpenFin",
@@ -13,7 +13,7 @@
         "uuid": "platform_customization_local",
         "applicationIcon": "https://openfin.github.io/golden-prototype/favicon.ico",
         "autoShow": false,
-        "providerUrl": "http://localhost:3000/provider",
+        "providerUrl": "https://next-platform-omega.vercel.app/provider",
         "permissions": {
             "ExternalWindow": {
                 "wrap": true
@@ -26,7 +26,7 @@
             }
         },
         "defaultWindowOptions": {
-            "url": "http://localhost:3000/platform-window",
+            "url": "https://next-platform-omega.vercel.app/platform-window",
             "waitForPageLoad": true,
             "contextMenu": true,
             "defaultWidth": 600,
@@ -41,8 +41,9 @@
             "minWidth": 354
         },
         "defaultViewOptions": {
+            "preloadScripts": [{"url":"https://next-platform-omega.vercel.app/tag-manager-preload.js", "mandatory": true}],
             "experimental": {
-                "contentCreation": {
+                "_contentCreation": {
                     "rules": [
                         {
                             "behavior": "window",

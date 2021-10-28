@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useLayouts from '../hooks/layouts';
 
 
-export default function LayoutForm({ toggleVisibility }) {
+export default function LayoutForm({ toggleVisibility }, ...props) {
     const initialState = { name: 'New Layout' };
     const [state, setState] = useState(initialState);
     const updateState = (e: React.ChangeEvent<HTMLInputElement>) => {
